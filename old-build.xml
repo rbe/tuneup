@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TuneUp" default="default" basedir=".">
+    <description>Builds, tests, and runs the project TuneUp.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <target name="-post-jar">
+        <delete dir="distrib"/>
+        <mkdir dir="distrib"/>
+        <mkdir dir="distrib/bin"/>
+        <copy todir="distrib/bin">
+            <fileset dir="src/bin">
+                <include name="**"/>
+            </fileset>
+        </copy>
+        <mkdir dir="distrib/lib"/>
+        <copy todir="distrib">
+            <fileset dir="dist">
+                <include name="lib/**.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="distrib/lib">
+            <fileset dir="dist">
+                <include name="**.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="distrib/tor">
+            <fileset dir="D:/PortableApps/TorPortable">
+                <include name="**"/>
+                <exclude name="FirefoxPortable/**"/>
+                <exclude name="Docs/**"/>
+                <exclude name="**.exe"/>
+            </fileset>
+        </copy>
+    </target>
+</project>
